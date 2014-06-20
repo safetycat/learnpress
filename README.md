@@ -1,4 +1,4 @@
 learnpress
 ==========
 
-a basic Learning management system plug-in for wordpress
+a basic learning management system plug-in for wordpress
