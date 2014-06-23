@@ -2,23 +2,8 @@ language: php
 php:
 - 5.4
 env:
-- WP_VERSION=latest WP_MULTISITE=0
-
-- secure: "MWbc/YsfPcBwCz6HSi9ga4j5kX5VmH2a6VxkLbNgU8i1bMlGlonjRrJVHEebz/f1aENl/DruJhMiwUFVuvC4uymDXkQ3OIJ3mW9nUAGRKXsdr3qmqtytJY0VeaQPZAzbJm+7j1erb6RAWVyI1lEW5uaTdEekBZ/EhyxaPpZ9pxg="
-- secure: "RJsyaQNNuOZtfL9onA2GgSIfws09mnGZv4mamfOJOqJtaddkoSgoGjY/NCv/LQhrbYQr2En8uRCfTQaAjtJuSEdZUxP8H31m1/gZiaiYFOyWBQSjCng9XprDCVqQftdjJGUMV+pkqqrSwwUSQ9J5/6csQt7yLZlgidKvEikKRfI="
+  matrix:
+  - WP_VERSION=latest WP_MULTISITE=0
   global:
-    - "FTP_USER=USER"
-    - "FTP_PASS=PASS"
-    - "HOST=ftp.safetycat.org"
-#before_script:
-#- bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
-#script: phpunit
-#after_success:
-before_script:
-  "ftp -n $HOST <<END_SCRIPT
-  quote USER $FTP_USER
-  quote PASS $FTP_PASS
-  put README.md
-  quit
-  END_SCRIPT"
-script: phpunit
+    secure: bymzsWZkONVMfzTNkatV3ID4tGipDxkjnY/la2Y0+GuvM0dunV6KslWnowaJmGTkqbbESpOPAmceoAheL4OnnB3EPA94uE3SD45NJaKy7U3Bx5TA/XAmB2APb5pG/lVM2ExNGOcFVpBTMYFhXd6t30UHV7ym9q1jszyFSfMhmD0=
+    secure: pgXZQ6FdnGayxBzTbtEpsHHyeZE+R3so5Uh2VioBb3fcOw56+yntndJpnOIByR9/PX7ehigdCtCGyCzFM0k4TL7ld7MTZJb0SCttt6Md1c7PjyI6dyR4pAm8Y7+0kDbbX4tfnBa7OGDQLRh0mh6l6au97Q5PYQ4b+Ggp46mULU0=
