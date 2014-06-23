@@ -7,3 +7,18 @@ env:
   global:
     secure: bymzsWZkONVMfzTNkatV3ID4tGipDxkjnY/la2Y0+GuvM0dunV6KslWnowaJmGTkqbbESpOPAmceoAheL4OnnB3EPA94uE3SD45NJaKy7U3Bx5TA/XAmB2APb5pG/lVM2ExNGOcFVpBTMYFhXd6t30UHV7ym9q1jszyFSfMhmD0=
     secure: pgXZQ6FdnGayxBzTbtEpsHHyeZE+R3so5Uh2VioBb3fcOw56+yntndJpnOIByR9/PX7ehigdCtCGyCzFM0k4TL7ld7MTZJb0SCttt6Md1c7PjyI6dyR4pAm8Y7+0kDbbX4tfnBa7OGDQLRh0mh6l6au97Q5PYQ4b+Ggp46mULU0=
+# Clones WordPress and configures our testing environment.
+before_script:
+    - export PLUGIN_SLUG=$(basename $(pwd)) # gets folder name (which is the plugin name)
+    - git clone https://github.com/tierra/wordpress.git /tmp/wordpress
+    - cd ..
+    - mv $PLUGIN_SLUG "/tmp/wordpress/src/wp-content/plugins/$PLUGIN_SLUG"
+    - cd /tmp/wordpress
+    - git checkout $WP_VERSION
+    - mysql -e "CREATE DATABASE wordpress_tests;" -uroot
+    - cp wp-tests-config-sample.php wp-tests-config.php
+    - sed -i "s/youremptytestdbnamehere/wordpress_tests/" wp-tests-config.php
+    - sed -i "s/yourusernamehere/travis/" wp-tests-config.php
+    - sed -i "s/yourpasswordhere//" wp-tests-config.php
+    - cd "/tmp/wordpress/src/wp-content/plugins/$PLUGIN_SLUG"
+ script: phpunit
