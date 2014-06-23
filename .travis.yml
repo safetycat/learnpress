@@ -1,16 +1,24 @@
 language: php
-
 php:
-    - 5.3
-    - 5.4
-
+- 5.4
 env:
-    - WP_VERSION=latest WP_MULTISITE=0
-    - WP_VERSION=latest WP_MULTISITE=1
-    - WP_VERSION=3.8 WP_MULTISITE=0
-    - WP_VERSION=3.8 WP_MULTISITE=1
+- WP_VERSION=latest WP_MULTISITE=0
 
+- secure: "MWbc/YsfPcBwCz6HSi9ga4j5kX5VmH2a6VxkLbNgU8i1bMlGlonjRrJVHEebz/f1aENl/DruJhMiwUFVuvC4uymDXkQ3OIJ3mW9nUAGRKXsdr3qmqtytJY0VeaQPZAzbJm+7j1erb6RAWVyI1lEW5uaTdEekBZ/EhyxaPpZ9pxg="
+- secure: "RJsyaQNNuOZtfL9onA2GgSIfws09mnGZv4mamfOJOqJtaddkoSgoGjY/NCv/LQhrbYQr2En8uRCfTQaAjtJuSEdZUxP8H31m1/gZiaiYFOyWBQSjCng9XprDCVqQftdjJGUMV+pkqqrSwwUSQ9J5/6csQt7yLZlgidKvEikKRfI="
+  global:
+    - "FTP_USER=USER"
+    - "FTP_PASS=PASS"
+    - "HOST=ftp.safetycat.org"
+#before_script:
+#- bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+#script: phpunit
+#after_success:
 before_script:
-    - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION 
-
+  "ftp -n $HOST <<END_SCRIPT
+  quote USER $FTP_USER
+  quote PASS $FTP_PASS
+  put README.md
+  quit
+  END_SCRIPT"
 script: phpunit
