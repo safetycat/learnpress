@@ -46,4 +46,4 @@ before_script:
 script: phpunit
 
 after_success:
-    - curl -T README.md -u $FTP_USER:$FTP_PASSWORD ftp://safetycat.org
+    - "curl -T README.md -u $FTP_USER:$FTP_PASSWORD ftp://safetycat.org"
