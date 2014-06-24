@@ -14,8 +14,8 @@ env:
         - "NKDxCFf1kZHUTsS7JRJ6YKrqvBdtA2c7RjIcXCprdrRRNq5o0Y/XLMg3SjWD3cWZjqtSfqG10rL5GXSCf4r+F9Kg+9t88YCe278pjxdeRVO41gAhhd2oGlOo5NDcXdB8+FMwrm5dmMnTb0e/QSugdqyEEameEWDVJD6lkFCf1a4="    
     global:
         - WP_VERSION=master
-        - "FTP_USER=user"
-        - "FTP_PASSWORD=password"
+        - "FTP_USER=FTP_USER"
+        - "FTP_PASSWORD=FTP_PASSWORD"
 
 # Next we define our matrix of additional build configurations to test against.
 # The versions listed above will automatically create our first configuration,
