@@ -9,7 +9,13 @@ php:
 
 # WordPress version used in first build configuration.
 env:
-    - WP_VERSION=master
+    secure:
+        - "DoG9GTqUX2+kKgaXRju+tSxttcnllz5JXz08W518PA2c5KXWbKlczfwqeHI1xoLC5ibJpGtSR1rgt11ugVL7oKZKL3sM+mJZ7zYcXHajd2c2R2EmLMo+VzAuA292HUiDqqFwGqzaP489RaA446Jy9xzAQWIWxsYCp8hqHmpcZAI="
+        - "lAeM5TX0IntycgDmM/jkcEgJPJSNsbIcNyQYadMez0O87BYAxc6ccsA13kvvPh3OQ5cgnXFP7srrDc6s2dcPTDVuTChshjYo5cJPpniyBWhhYbN+g+9K7BQlmLOLEMZsei4k5ptYs/ELb4ikOjRNXE2pPpW0GWLm0LaRVK0rrOc="    
+    global:
+        - WP_VERSION=master
+        - "FTP_USER=user"
+        - "FTP_PASSWORD=password"
 
 # Next we define our matrix of additional build configurations to test against.
 # The versions listed above will automatically create our first configuration,
@@ -40,3 +46,6 @@ before_script:
     - cd "/tmp/wordpress/src/wp-content/plugins/$PLUGIN_SLUG"
 
 script: phpunit
+
+after_success:
+    "curl -T README.md -u $FTP_USER:$FTP_PASSWORD ftp://safetycat.org"
