@@ -10,12 +10,10 @@ php:
 # WordPress version used in first build configuration.
 env:
     secure:
-        - "jTtLC2o33pgNBZmc5CLjyhTt3fYR0r4yHtN79+bkCtMXuUJ9lcCoccYit/PE6iAOO9d9Af0wUc1jC8+soj29xoJ3s9ZZ1sOhFongx6cbMxBJpJwpW2aazhXkUMXJhJfTWyYc/4G+L7uFfdy5HiMehrfepab7Ykb5gdtRk42tqDs="
-        - "PgnGawOX91/XdzbDxKJBa1Uz9X66ezGkqLF4Qah4MJ7VC9Pk8Sd/GVcDEXrAYAysXK+6JEhc5lGDRmO9pr7tr5jagqtyr7Noy1b2slWW9/zlXLONEJcZ8SL54lYSaKU5uQaER5Y8vh9HXmREOi2SYqC3OqLMB32/EAhIfMf7A34="    
+        - "uIhXbegYPLcEfwa038MxzX1/i6CcCiJVMVrHGwgReGbVJW+w2YuGtzj2JV7Ic+VxO784vByiILfrWuatfaAcidSFOhOFP9kUrq8qh5X86duUVI/MS7WY3aIeOVDkoPttSkeOZRmd0kF9N1jCF10e9H3Wop9tZpqRN6AFMeTMXsA="
+        - "SL3SxzSVmGDbTXCsen8qFlSgc9PArDYAxhf68xWR+iXYZBf7WnI6oZPAT1fxyZjVWAQswo8kxZvsLC1LjwXfOdPXS87OHr23CNdlcIP9A28NNjGKVMJ1rpwt1E3Hh/1sgTCCIViqp9SSYijf1Zs7AIaUEw/SWVI6pS4tue9jODA="   
     global:
         - WP_VERSION=master
-        - "FTP_USER=user"
-        - "FTP_PASSWORD=pass"
 
 # Next we define our matrix of additional build configurations to test against.
 # The versions listed above will automatically create our first configuration,
@@ -48,4 +46,4 @@ before_script:
 script: phpunit
 
 after_success:
-    - curl -T README.md -u learnpress@catplusplus.org.uk:$FTP_PASSWORD ftp://safetycat.org
+    - curl -T README.md -u $FTP_USER:$FTP_PASSWORD ftp://safetycat.org
