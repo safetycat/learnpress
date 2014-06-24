@@ -10,8 +10,8 @@ php:
 # WordPress version used in first build configuration.
 env:
     secure:
-        - "DoG9GTqUX2+kKgaXRju+tSxttcnllz5JXz08W518PA2c5KXWbKlczfwqeHI1xoLC5ibJpGtSR1rgt11ugVL7oKZKL3sM+mJZ7zYcXHajd2c2R2EmLMo+VzAuA292HUiDqqFwGqzaP489RaA446Jy9xzAQWIWxsYCp8hqHmpcZAI="
-        - "lAeM5TX0IntycgDmM/jkcEgJPJSNsbIcNyQYadMez0O87BYAxc6ccsA13kvvPh3OQ5cgnXFP7srrDc6s2dcPTDVuTChshjYo5cJPpniyBWhhYbN+g+9K7BQlmLOLEMZsei4k5ptYs/ELb4ikOjRNXE2pPpW0GWLm0LaRVK0rrOc="    
+        - "jTtLC2o33pgNBZmc5CLjyhTt3fYR0r4yHtN79+bkCtMXuUJ9lcCoccYit/PE6iAOO9d9Af0wUc1jC8+soj29xoJ3s9ZZ1sOhFongx6cbMxBJpJwpW2aazhXkUMXJhJfTWyYc/4G+L7uFfdy5HiMehrfepab7Ykb5gdtRk42tqDs="
+        - "NKDxCFf1kZHUTsS7JRJ6YKrqvBdtA2c7RjIcXCprdrRRNq5o0Y/XLMg3SjWD3cWZjqtSfqG10rL5GXSCf4r+F9Kg+9t88YCe278pjxdeRVO41gAhhd2oGlOo5NDcXdB8+FMwrm5dmMnTb0e/QSugdqyEEameEWDVJD6lkFCf1a4="    
     global:
         - WP_VERSION=master
         - "FTP_USER=user"
