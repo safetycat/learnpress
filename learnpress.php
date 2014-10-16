@@ -7,6 +7,7 @@ Version: 0.0
 Author: Safetycat
 Author URI: http://safetycat.co.uk
 Author Email: james@ ^
+ignore this
 */
 // Only create an instance of the plugin if it doesn't already exists in GLOBALS
 if( ! array_key_exists( 'hello-reader', $GLOBALS ) ) {
